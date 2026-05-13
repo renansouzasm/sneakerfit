@@ -2,6 +2,9 @@
 
 > Sneakerfit é um projeto acadêmico full stack para gestão completa (CRUD) de produtos, clientes, pedidos e funcionários. Desenvolvido com Next.js, TypeScript, TailwindCSS, Prisma (ORM) e Supabase (PostgreSQL)
 
+<img width="800px" alt="Sneakerfit" src="https://github.com/user-attachments/assets/4dad7e3e-2406-487e-92eb-7c07fb714f4e" />
+
+
 ### Tecnologias
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
