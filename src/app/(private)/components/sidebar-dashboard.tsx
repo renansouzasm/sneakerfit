@@ -38,7 +38,7 @@ export function SidebarDashboard() {
         <h2 className="text-lg font-semibold leading-tight">
           Welcome back,
           <br />
-          George!
+          User!
         </h2>
       </header>
 

@@ -46,7 +46,7 @@ export function ProductForm({ mode, product }: Props) {
           </select>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
+        <div className="grid md:grid-cols-2 gap-x-4 gap-y-8 mb-8">
           <div>
             <label className="font-semibold">Price</label>
             <input
