@@ -4,6 +4,8 @@ A full-stack oriented web application built with **Next.js**, focused on managin
 
 This project was designed not only to function as an e-commerce interface, but also to demonstrate **clean architecture, state management, and scalability patterns** using modern frontend tools.
 
+#### [Style Guide](https://github.com/renansouzasm/sneakerfit/blob/main/style-guide.md)
+
 ### 🚀 Tech Stack
 
 - **Next.js (App Router)**
