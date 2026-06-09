@@ -70,9 +70,22 @@ export function ProductForm({ mode, product }: Props) {
         </div>
 
         <div className="mb-8">
+          <label className="font-semibold">Thumb url</label>
+          <input
+            className="w-full rounded-lg mt-2 p-4 bg-surface-secondary placeholder:text-text-muted"
+            name="thumbUrl"
+            type="text"
+            placeholder={product?.thumbUrl ?? "/products/placeholder.png"}
+            disabled
+            defaultValue={product?.thumbUrl}
+          />
+        </div>
+
+        <div className="mb-8">
           <label className="font-semibold">Product details</label>
           <textarea
             className="resize-none w-full rounded-lg mt-2 p-4 bg-surface-secondary placeholder:text-text-muted"
+            name="details"
             placeholder="Write the product details"
             rows={10}
             defaultValue={product?.details}

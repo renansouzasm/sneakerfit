@@ -20,7 +20,7 @@ export function ProductCard({ product }: Props) {
           alt={product.title}
           width={400}
           height={400}
-          src="/products/placeholder.png"
+          src={product.thumbUrl}
         />
       </div>
 
