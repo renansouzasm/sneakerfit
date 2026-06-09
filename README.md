@@ -1,54 +1,207 @@
-# Next sneakerfit
+# _Sneakerfit_
 
-> Sneakerfit é um projeto acadêmico full stack para gestão completa (CRUD) de produtos, clientes, pedidos e funcionários. Desenvolvido com Next.js, TypeScript, TailwindCSS, Prisma (ORM) e Supabase (PostgreSQL)
+A full-stack oriented web application built with **Next.js**, focused on managing and displaying sneaker products through a **dashboard** and a **store** interface.
 
-<img width="800px" alt="Sneakerfit" src="https://github.com/user-attachments/assets/4dad7e3e-2406-487e-92eb-7c07fb714f4e" />
+This project was designed not only to function as an e-commerce interface, but also to demonstrate **clean architecture, state management, and scalability patterns** using modern frontend tools.
 
+### 🚀 Tech Stack
 
-### Tecnologias
+- **Next.js (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **Zod (schema validation)**
+- **Prisma (ORM)**
+- **Supabase (PostegreSQL DB)**
+- **Lucide React (icons)**
 
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+### 💻 Preview
 
-### 🚀 Guia rápido de instalação
+<img width=400 src="https://images.unsplash.com/photo-1779464433199-ca57ba28339b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D" alt="Preview" />
 
-1. Instale as dependências/pacotes do projeto.
+## 🧩 Structure
 
-```bash
-npm install
+```
+/prisma
+|—— /migrations
+|—— schema.prisma
+
+/public
+|—— /banners
+|—— /logos
+|—— /products
+
+/src
+|—— /data
+|—— /hooks
+|—— /lib
+|—— /schemas
+|—— /services
+|—— /utils
+|
+|—— /server
+|   |——/actions
+|
+|—— /context
+|   |—— /product
+|   |—— /sidebar
+|
+|—— /app
+|   |—— /(public)
+|   |
+|   |—— /(private)
+|       |—— /dashboard
+|           |—— /products
 ```
 
-2. Para configurar as variáveis de ambiente, crie um arquivo **.env** na raiz do projeto e adicione suas chaves do Supabase.
+## 🧠 Architecture Overview
 
-```env
-# Connect to Supabase via connection pooling
-DATABASE_URL=""
+### 🔹 Layers
 
-# Direct connection to the database. Used for migrations
-DIRECT_URL=""
-
-NEXT_PUBLIC_SUPABASE_URL=""
-NEXT_PUBLIC_SUPABASE_ANON_KEY=""
-
-SUPABASE_SERVICE_ROLE_KEY=""
+```
+Services → Actions → Hooks → Context → UI
 ```
 
-3. Inicie o servidor de desenvolvimento:
-   npm run dev
+### 🔹 Services
 
-```bash
-npm run dev
+Located in:
+
+```
+/src/services
 ```
 
-### 🖼️ Imagens, referências e inspirações
+- Contains business rules
+- Example:
+  - Price conversion (to cents)
+  - Data normalization
 
-- Design: [Dribbble](https://dribbble.com/shots/26450120-TSSF-Shoes-Shoes-Store-Website?utm_source=Clipboard_Shot&utm_campaign=emilyjohansson&utm_content=TSSF%20Shoes%20-%20Shoes%20Store%20Website&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=emilyjohansson&utm_content=TSSF%20Shoes%20-%20Shoes%20Store%20Website&utm_medium=Social_Share)
+### 🔹 Actions
 
-- Avatares: [Vecteezy](https://pt.vecteezy.com)
+Located in:
 
-- Thumbs de produtos: [On Shoes](https://www.onlyshoes.com.br), [New Balance](https://www.newbalance.com.br)
+```
+/src/server/actions
+```
 
-- Wallpaper das páginas de Login e Cadastro: [Unsplash](https://unsplash.com/pt-br/fotografias/um-par-de-tenis-cinza-nike-air-force-SY7t8068fow)
+- Discriminated union
+  - `type ErrorResponse`
+  - `type SuccessResponse<T>`
+  - `type EmptySuccessResponse`
+- Responsible for handling server-side logic
+- Communicate with services
+- Return structured responses
+
+### 🔹 Schemas
+
+Located in:
+
+```
+/src/schemas
+```
+
+- Built with Zod
+- Validates input before reaching services
+
+### 🔹 Hooks
+
+Located in:
+
+```
+/src/hooks
+```
+
+Responsibilities:
+
+- Fetch data from actions
+- Manage local state
+
+### 🔹 Context
+
+Located in:
+
+```
+/src/context
+```
+
+#### Product Context
+
+- `ProductProvider` → single source of truth
+- `useProductContext` → full access (dashboard)
+- `useStoreProducts` → limited access (store)
+
+This separation ensures:
+
+- Clear responsibility boundaries
+- No unintended mutations in public pages
+
+### 🔹 UI Layers
+
+#### Public (Store)
+
+```
+/src/app/(public)
+```
+
+- Product listing
+- UI-focused
+- No mutation logic
+
+#### Private (Dashboard)
+
+```
+/src/app/(private)/dashboard
+```
+
+- Product management (CRUD)
+- Forms
+- Table view
+
+### 🔹 Data
+
+```
+/prisma
+```
+
+- Supabase (postegresql)
+
+## 🧾 Product Model
+
+- `ProductBrand` → enum (nike, adidas, new balance)
+- `ProductStatus` → enum (available, low stock, no stock)
+
+```prisma
+model Product {
+  id        String        @id @default(uuid())
+  title     String
+  brand     ProductBrand
+  price     Int
+  stock     Int           @default(0)
+  status    ProductStatus @default(NO_STOCK)
+  details   String
+  thumbUrl  String
+}
+```
+
+## 📌 Notes
+
+> Inspired by leading market brands, this project is for educational and portfolio purposes only. Logos (Nike, Adidas and New Balance) used for demonstration purposes only. All trademarks and logos belong to their respective owners.
+
+- Price handling uses **cents-based storage** for precision
+- Architecture is designed to scale into real backend integration
+- Project emphasizes **clean separation of responsibilities**
+
+### 🔹 Future Improvements
+
+- 🔐 Authentication
+- 📊 Analytics dashboard
+
+### 🔹 Public Assets
+
+- [🔗 Hero](https://www.pexels.com/pt-br/foto/exibicao-visor-display-vitrine-18946892/)
+- [🔗 Banner nike](https://www.pexels.com/pt-br/foto/sapatos-calcados-marca-estilo-8979071/)
+- [🔗 Banner adidas](https://www.pexels.com/pt-br/foto/moda-tendencia-criativo-engenhoso-4211336/)
+- [🔗 Banner new balance](https://www.pexels.com/pt-br/foto/design-projeto-visual-caixa-12279148/)
+- [🔗 Banner trending](https://www.pexels.com/pt-br/foto/nike-natureza-morta-tenis-fotografia-de-moda-18946903/)
+
+## 🐦‍⬛ Author
+
+_**© 2025 renansouzasm. All Rights Reserved**_

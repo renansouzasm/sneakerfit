@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;900;1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;600;700;900;1000&display=swap");
+@import "tailwindcss";
+
+:root {
+  --color-background: #0f1117;
+  --color-text-primary: #e8edf5;
+  --color-text-secondary: #8a9ab5;
+  --color-text-muted: #4a5870;
+  --color-surface-primary: #161b27;
+  --color-surface-secondary: #1a2035;
+  --color-brand: #5b8def;
+  --color-brand-subtle: #1a2540;
+  --color-border: #1e2738;
+  --color-border-strong: #2a3650;
+  --color-highlight: #c38a3e;
+  --color-highlight-hover: #b68b4b;
+}
+
+:root {
+  --font-dm-sans: "DM Sans", monospace;
+  --font-chivo-mono: "Chivo Mono", monospace;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-card: var(--color-card);
+  --color-surface-primary: var(--color-surface-primary);
+  --color-surface-secondary: var(--color-surface-secondary);
+  --color-brand: var(--color-brand);
+  --color-brand-subtle: var(--color-brand-subtle);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-highlight: var(--color-highlight);
+  --color-highlight-hover: var(--color-highlight-hover);
+
+  --font-instrument-sans: var(--font-instrument-sans);
+  --font-dm-sans: var(--font-dm-sans);
+  --font-chivo-mono: var(--font-chivo-mono);
+}
