@@ -1,7 +1,7 @@
 "use client";
 
 import { useCartContext } from "@/context/cart/useCartContext";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 import { formatCurrencyBrl } from "@/utils/formatCurrencyBrl";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";

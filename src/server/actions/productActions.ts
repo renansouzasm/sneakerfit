@@ -11,7 +11,7 @@ import {
   updateProduct,
   deleteProduct,
 } from "@/services/productService";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 
 type ErrorResponse = { success: false; error: string; fieldErrors?: string };
 type SuccessResponse<T> = { success: true; data: T };

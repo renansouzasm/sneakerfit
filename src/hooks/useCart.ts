@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 
 export interface ICartItem extends Product {
   qty: number;

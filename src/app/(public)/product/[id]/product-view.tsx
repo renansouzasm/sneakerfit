@@ -5,7 +5,7 @@ import { Overlay } from "../../components/overlay";
 import { formatCurrencyBrl } from "@/utils/formatCurrencyBrl";
 import { notFound } from "next/navigation";
 import { useCartContext } from "@/context/cart/useCartContext";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 
 type Props = {
   product: Product;

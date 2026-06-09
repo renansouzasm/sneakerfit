@@ -1,7 +1,7 @@
 "use client";
 
 import { useSidebarContext } from "@/context/sidebar/useSidebarContext";
-import { LayoutDashboard, SportShoe, Package, Form, Store } from "lucide-react";
+import { LayoutDashboard, SportShoe, Store } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

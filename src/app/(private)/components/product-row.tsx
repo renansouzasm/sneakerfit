@@ -1,7 +1,7 @@
 "use client";
 
 import { useProductContext } from "@/context/product/useProductContext";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 import { formatCurrencyBrl } from "@/utils/formatCurrencyBrl";
 import { Pencil, Trash } from "lucide-react";
 import Image from "next/image";

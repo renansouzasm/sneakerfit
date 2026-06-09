@@ -3,13 +3,13 @@ import {
   UpdateProductInput,
 } from "@/schemas/productSchema";
 import { reaisToCents } from "@/utils/reaisToCents";
-import { Product, ProductStatus } from "@prisma/client";
+import { Product, ProductStatusEnum, ProductStatus } from "@/types/product";
 import { prisma } from "@/lib/prisma";
 
 function assignStatus(stock: number): ProductStatus {
-  if (stock > 5) return ProductStatus.AVAILABLE;
-  if (stock > 0) return ProductStatus.LOW_STOCK;
-  return ProductStatus.NO_STOCK;
+  if (stock > 5) return ProductStatusEnum.AVAILABLE;
+  if (stock > 0) return ProductStatusEnum.LOW_STOCK;
+  return ProductStatusEnum.NO_STOCK;
 }
 
 function assignDetails(details: string | undefined): string {

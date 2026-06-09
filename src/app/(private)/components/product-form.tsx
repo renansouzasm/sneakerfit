@@ -2,7 +2,7 @@
 
 import { useProductContext } from "@/context/product/useProductContext";
 import { centsToReais } from "@/utils/centsToReais";
-import { Product, ProductBrand } from "@prisma/client";
+import { Product, ProductBrandEnum } from "@/types/product";
 
 type Props = {
   mode: "create" | "edit";
@@ -40,9 +40,9 @@ export function ProductForm({ mode, product }: Props) {
             className="w-full rounded-lg mt-2 p-4 bg-surface-secondary"
             name="brand"
           >
-            <option value={ProductBrand.ADIDAS}>Adidas</option>
-            <option value={ProductBrand.NIKE}>Nike</option>
-            <option value={ProductBrand.NEW_BALANCE}>New Balance</option>
+            <option value={ProductBrandEnum.ADIDAS}>Adidas</option>
+            <option value={ProductBrandEnum.NIKE}>Nike</option>
+            <option value={ProductBrandEnum.NEW_BALANCE}>New Balance</option>
           </select>
         </div>
 

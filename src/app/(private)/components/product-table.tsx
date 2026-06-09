@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 import { ProductRow } from "./product-row";
 
 type ProductTableProps = {

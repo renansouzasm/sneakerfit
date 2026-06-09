@@ -1,4 +1,4 @@
-import { ProductBrand } from "@prisma/client";
+import { ProductBrandEnum } from "@/types/product";
 import { z } from "zod";
 
 const productBaseSchema = z.object({
@@ -7,7 +7,7 @@ const productBaseSchema = z.object({
     .trim()
     .min(1, { message: "The name is required." }),
 
-  brand: z.enum(ProductBrand, { message: "Invalid brand." }),
+  brand: z.enum(ProductBrandEnum, { message: "Invalid brand." }),
 
   price: z.coerce
     .number({ message: "The price needs to be a number." })

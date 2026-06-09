@@ -7,7 +7,7 @@ import {
   deleteProductAction,
 } from "@/server/actions/productActions";
 import { useEffect, useState } from "react";
-import { Product } from "@prisma/client";
+import { Product } from "@/types/product";
 
 type UseProductsType = {
   products: Product[];
