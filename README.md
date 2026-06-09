@@ -16,7 +16,13 @@ This project was designed not only to function as an e-commerce interface, but a
 
 ### 💻 Preview
 
-<img width=400 src="https://images.unsplash.com/photo-1779464433199-ca57ba28339b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D" alt="Preview" />
+<img width="384" alt="Product table" src="https://github.com/user-attachments/assets/4df1b1d9-7b42-43f7-b5e6-0786fd876736" />
+<img width="384" alt="Product details" src="https://github.com/user-attachments/assets/1598748e-6ba1-4856-83b3-8dd5a6e97ab6" />
+
+<img width="384" alt="Cart" src="https://github.com/user-attachments/assets/b32b50fb-07b5-4ba4-a0e0-8244e0df6465" />
+<img width="384" alt="Form" src="https://github.com/user-attachments/assets/46ee6804-8f01-4321-847c-97dfb2d82f72" />
+
+<img width="768" alt="sneakerfit-store" src="https://github.com/user-attachments/assets/a02a7c71-03a6-43fa-8394-58b20c804078" />
 
 ## 🧩 Structure
 
