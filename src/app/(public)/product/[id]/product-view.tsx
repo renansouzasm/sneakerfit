@@ -25,9 +25,7 @@ export function ProductView({ product }: Props) {
               {product.brand}
             </span>
 
-            <h1 className="mt-8 mb-4 max-w-3xs text-5xl font-bold">
-              {product.title}
-            </h1>
+            <h1 className="mt-8 mb-4 text-5xl font-bold">{product.title}</h1>
 
             <span className="font-semibold text-text-secondary">
               {formatCurrencyBrl(product.price)}
@@ -46,7 +44,7 @@ export function ProductView({ product }: Props) {
               className="w-full h-full object-contain -rotate-12 sm:scale-150"
               fill
               alt="adidas Alphabounce"
-              src="/products/placeholder.png"
+              src={product.thumbUrl}
             />
           </div>
         </div>
