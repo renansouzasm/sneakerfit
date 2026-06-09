@@ -3,7 +3,6 @@ import {
   UpdateProductInput,
 } from "@/schemas/productSchema";
 import { reaisToCents } from "@/utils/reaisToCents";
-import { centsToReais } from "@/utils/centsToReais";
 import { Product, ProductStatus } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
@@ -26,18 +25,11 @@ function assignThumbUrl(thumbUrl: string | undefined): string {
 export async function getProductById(id: string): Promise<Product> {
   const product = await prisma.product.findUnique({ where: { id } });
   if (!product) throw new Error("Product not found");
-  return {
-    ...product,
-    price: centsToReais(product.price),
-  };
+  return product;
 }
 
 export async function getProducts(): Promise<Product[]> {
-  const productsFromDB = await prisma.product.findMany();
-  const products = productsFromDB.map((product) => ({
-    ...product,
-    price: centsToReais(product.price),
-  }));
+  const products = await prisma.product.findMany();
   return products;
 }
 
@@ -52,7 +44,7 @@ export async function createProduct(
   const product = await prisma.product.create({
     data: { ...newProduct, price, status, details, thumbUrl },
   });
-  return { ...product, price: centsToReais(price) };
+  return product;
 }
 
 export async function updateProduct(
@@ -67,7 +59,7 @@ export async function updateProduct(
     where: { id: updatedData.id },
     data: { ...updatedData, price, status, details, thumbUrl },
   });
-  return { ...product, price: centsToReais(price) };
+  return product;
 }
 
 export async function deleteProduct(id: string): Promise<void> {

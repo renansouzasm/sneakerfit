@@ -1,6 +1,7 @@
 "use client";
 
 import { useProductContext } from "@/context/product/useProductContext";
+import { centsToReais } from "@/utils/centsToReais";
 import { Product, ProductBrand } from "@prisma/client";
 
 type Props = {
@@ -53,7 +54,7 @@ export function ProductForm({ mode, product }: Props) {
               name="price"
               type="text"
               placeholder="100.00"
-              defaultValue={product?.price}
+              defaultValue={product && centsToReais(product.price)}
             />
           </div>
           <div>
